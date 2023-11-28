@@ -32,9 +32,25 @@ class Production {
         return $this->rating;
     }
 
+    public function setTitle($title) {
+        if (is_string($title) && strlen($title) <= 50 ) {
+
+            $this->title = strval($title);
+        } else  {
+            var_dump('il parametro non è valido');
+        }
+    }
+
+    public function getTitle() {
+        return $this->title;
+    }
+
+    
+
+
 }
 //Creazione delle istanze della classe
-$movie_1 = new Production('il signore degli anelli', 'Eng', 10);
+$movie_1 = new Production('il signore dei tornelli', 'Eng', 10);
 
 // $movie_1 = new Production();
 //Assegnazione valore alle istanze
@@ -46,13 +62,17 @@ var_dump($movie_1);
 // var_dump('questo film si chiama'. ' ' . $movie_1->title);
 // var_dump('il voto di questo film è' . ' ' . $movie_1->getRating());
 
-$movie_2 = new Production('Marco Baldo', 'Ita', 3);
+$movie_2 = new Production('Alto,basso e Balto', 'Ita', 3);
 // $movie_2 = new Production;
 // $movie_2->title = 'Marco baldo';
 // $movie_2->language = 'Ita';
 // $movie_2->rating = 3;
-
 var_dump($movie_2);
+
+$movie_3 = new Production('Isabello il re pugile', 'Deu', 7);
+$movie_4 = new Production('Bartolomeo il gallo cannibale', 'Ita', 3);
+$movie_5 = new Production('Pirati dei balcani ai confini della vodka', 'Ita', 3);
+
 
 
 ?>
