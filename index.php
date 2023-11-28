@@ -14,7 +14,7 @@ class Production {
               $this->rating = $_rating;  
     }
 
-    // Controllo RATING
+    // Controllo
     // SETTER
     public function setRating($rating) {
 
@@ -32,7 +32,7 @@ class Production {
         return $this->rating;
     }
 
-    // Controllo TITLE
+    
     public function setTitle($title) {
         if (is_string($title) && strlen($title) <= 50 ) {
 
@@ -46,7 +46,7 @@ class Production {
         return $this->title;
     }
 
-    // Controllo LANGUAGE
+    
     public function setLanguage($language) {
         if (is_string($language) && strlen($language) <= 3 ) {
 
@@ -118,13 +118,12 @@ $movies = [
                         <th scope="col">Voto</th>
                     </tr>
                 </thead>
-                
                 <tbody>
                     <?php foreach($movies as $movie) {?>
                         <tr>
-                            <td class="fw-bold" > <?php echo $movie->title ?> </td>
-                            <td> <?php echo $movie->language ?> </td>
-                            <td> <?php echo $movie->rating ?> </td>
+                            <td class="fw-bold" > <?php echo $movie->getTitle() ?> </td>
+                            <td> <?php echo $movie->getLanguage() ?> </td>
+                            <td> <?php echo $movie->getRating() ?> </td>
                         </tr>   
                    <?php } ?>
                 </tbody>
