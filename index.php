@@ -15,7 +15,26 @@ class Production {
     }
 
     // Controllo
+
     // SETTER
+    public function setTitle($title) {
+        if (is_string($title) && strlen($title) <= 50 ) {
+
+            $this->title = strval($title);
+        } else  {
+            var_dump('il parametro del titolo non è valido');
+        }
+    }
+
+    public function setLanguage($language) {
+        if (is_string($language) && strlen($language) <= 3 ) {
+
+            $this->title = strval($language);
+        } else  {
+            var_dump('il parametro della lingua non è valido');
+        }
+    }
+
     public function setRating($rating) {
 
         if(is_numeric($rating) && $rating >= 0) {
@@ -26,38 +45,21 @@ class Production {
         }
         
     }
-    // GETTER
-    public function getRating() {
-
-        return $this->rating;
-    }
 
     
-    public function setTitle($title) {
-        if (is_string($title) && strlen($title) <= 50 ) {
-
-            $this->title = strval($title);
-        } else  {
-            var_dump('il parametro del titolo non è valido');
-        }
-    }
-
+    // GETTER
+    
     public function getTitle() {
         return $this->title;
     }
 
-    
-    public function setLanguage($language) {
-        if (is_string($language) && strlen($language) <= 3 ) {
-
-            $this->title = strval($language);
-        } else  {
-            var_dump('il parametro della lingua non è valido');
-        }
-    }
-
     public function getLanguage() {
         return $this->language;
+    }
+
+    public function getRating() {
+
+        return $this->rating;
     }
 
 }
