@@ -14,7 +14,7 @@ class Production {
               $this->rating = $_rating;  
     }
 
-    // Controllo
+    // Controllo RATING
     // SETTER
     public function setRating($rating) {
 
@@ -22,7 +22,7 @@ class Production {
 
             $this->rating = intval($rating);
         } else {
-            var_dump('il parametro non è un numero ');
+            var_dump('il parametro del numero non è valido ');
         }
         
     }
@@ -32,12 +32,13 @@ class Production {
         return $this->rating;
     }
 
+    // Controllo TITLE
     public function setTitle($title) {
         if (is_string($title) && strlen($title) <= 50 ) {
 
             $this->title = strval($title);
         } else  {
-            var_dump('il parametro non è valido');
+            var_dump('il parametro del titolo non è valido');
         }
     }
 
@@ -45,8 +46,19 @@ class Production {
         return $this->title;
     }
 
-    
+    // Controllo LANGUAGE
+    public function setLanguage($language) {
+        if (is_string($language) && strlen($language) <= 3 ) {
 
+            $this->title = strval($language);
+        } else  {
+            var_dump('il parametro della lingua non è valido');
+        }
+    }
+
+    public function getLanguage() {
+        return $this->language;
+    }
 
 }
 //Creazione delle istanze della classe
@@ -58,7 +70,7 @@ $movie_1 = new Production('il signore dei tornelli', 'Eng', 10);
 // $movie_1->language = 'Eng';
 // $movie_1->setRating(10);
 
-var_dump($movie_1);
+// var_dump($movie_1);
 // var_dump('questo film si chiama'. ' ' . $movie_1->title);
 // var_dump('il voto di questo film è' . ' ' . $movie_1->getRating());
 
@@ -67,13 +79,21 @@ $movie_2 = new Production('Alto,basso e Balto', 'Ita', 3);
 // $movie_2->title = 'Marco baldo';
 // $movie_2->language = 'Ita';
 // $movie_2->rating = 3;
-var_dump($movie_2);
+// var_dump($movie_2);
 
 $movie_3 = new Production('Isabello il re pugile', 'Deu', 7);
 $movie_4 = new Production('Bartolomeo il gallo cannibale', 'Ita', 3);
-$movie_5 = new Production('Pirati dei balcani ai confini della vodka', 'Ita', 3);
+$movie_5 = new Production('Pirati dei balcani ai confini della vodka', 'Spa', 3);
 
+$movies = [
+    $movie_1,
+    $movie_2,
+    $movie_3,
+    $movie_4,
+    $movie_5,
+];
 
+// var_dump($movies);
 
 ?>
 
@@ -83,8 +103,33 @@ $movie_5 = new Production('Pirati dei balcani ai confini della vodka', 'Ita', 3)
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>opp</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <main>
+        <div class="container">
+            <h1>Film</h1>
+            <table class="table">
+                <thead class="table-light">
+                    <tr>
+                        <th scope="col">Titolo</th>
+                        <th scope="col">Lingua</th>
+                        <th scope="col">Voto</th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    <?php foreach($movies as $movie) {?>
+                        <tr>
+                            <td class="fw-bold" > <?php echo $movie->title ?> </td>
+                            <td> <?php echo $movie->language ?> </td>
+                            <td> <?php echo $movie->rating ?> </td>
+                        </tr>   
+                   <?php } ?>
+                </tbody>
+            </table>
+        </div>
+    </main> 
 </body>
 </html>
