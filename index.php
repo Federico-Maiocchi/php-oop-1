@@ -1,5 +1,4 @@
 <?php
-
 // creazione della classe
 class Production {
 
@@ -7,17 +6,35 @@ class Production {
     public $language;
     public $rating;
 
-    
+    // Controllo
+    public function setRating($rating) {
+
+        if(is_numeric($rating) && $rating >= 0) {
+
+            $this->rating = intval($rating);
+        } else {
+            var_dump('il parametro non è un numero ');
+        }
+        
+    }
+
+    public function getRating() {
+
+        return $this->rating;
+    }
+
+
 }
 //Creazione delle istanze della classe
 $movie_1 = new Production();
 //Assegnazione valore alle istanze
 $movie_1->title = 'Il signore degli anelli';
 $movie_1->language = 'Eng';
-$movie_1->rating = 10;
+$movie_1->setRating(10);
 
-var_dump($movie_1);
+// var_dump($movie_1);
 // var_dump('questo film si chiama'. ' ' . $movie_1->title);
+var_dump('il voto di questo film è' . ' ' . $movie_1->getRating());
 
 $movie_2 = new Production;
 $movie_2->title = 'Marco baldo';
