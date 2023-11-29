@@ -100,12 +100,26 @@ $movie_4 = new Movie('Bartolomeo il gallo cannibale', 'Ita', 3, 60, 60);
 $movie_5 = new Movie('Pirati dei balcani ai confini della vodka', 'Spa', 3, 10, 30);
 // var_dump($movie_1,$movie_2,$movie_3,$movie_4,$movie_5);
 
-$movies = [
+$season_1 = new Series('Finche la barca va', 'Ita', 4, 19);
+$season_2 = new Series('Chin chun chin', 'Chi', 9, 2);
+$season_3 = new Series('Il pappagallo infernale', 'Esp', 6, 35);
+$season_4 = new Series('La gatta incarne e la bustina di cibo', 'Fra', 2, 7);
+$season_5 = new Series('Iron Fede', 'Eng', 10, 5);
+// var_dump($season_1,$season_2,$season_3,$season_4,$season_4);
+
+
+
+$collection = [
     $movie_1,
     $movie_2,
     $movie_3,
     $movie_4,
     $movie_5,
+    // $season_1,
+    // $season_2,
+    // $season_3,
+    // $season_4,
+    // $season_5,
 ];
 
 // var_dump($movies);
@@ -136,7 +150,11 @@ $movies = [
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach($movies as $movie) {?>
+                    <?php foreach($collection as $movie) {
+
+
+
+                    ?>
                         <tr>
                             <td class="fw-bold" > <?php echo $movie->getTitle() ?> </td>
                             <td> <?php echo $movie->getLanguage() ?> </td>
