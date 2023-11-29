@@ -1,68 +1,71 @@
 <?php
+
+require_once __DIR__ . '/Models/Production.php';
+
 // creazione della classe
-class Production {
+// class Production {
 
-    public $title;
-    public $language;
-    public $rating;
+//     public $title;
+//     public $language;
+//     public $rating = 0;
 
-    // COSTRUTTORE
-    function __construct($_title, $_language, $_rating)
-    {
-              $this->title = $_title;
-              $this->language = $_language;
-              $this->rating = $_rating;  
-    }
+//     // COSTRUTTORE
+//     function __construct($_title, $_language, $_rating = 0)
+//     {
+//               $this->title = $_title;
+//               $this->language = $_language;
+//               $this->rating = $_rating;  
+//     }
 
-    // Controllo
+//     // Controllo
 
-    // SETTER
-    public function setTitle($title) {
-        if (is_string($title) && strlen($title) <= 50 ) {
+//     // SETTER
+//     public function setTitle($title) {
+//         if (is_string($title) && strlen($title) <= 50 ) {
 
-            $this->title = strval($title);
-        } else  {
-            var_dump('il parametro del titolo non è valido');
-        }
-    }
+//             $this->title = strval($title);
+//         } else  {
+//             var_dump('il parametro del titolo non è valido');
+//         }
+//     }
 
-    public function setLanguage($language) {
-        if (is_string($language) && strlen($language) <= 3 ) {
+//     public function setLanguage($language) {
+//         if (is_string($language) && strlen($language) <= 3 ) {
 
-            $this->title = strval($language);
-        } else  {
-            var_dump('il parametro della lingua non è valido');
-        }
-    }
+//             $this->title = strval($language);
+//         } else  {
+//             var_dump('il parametro della lingua non è valido');
+//         }
+//     }
 
-    public function setRating($rating) {
+//     public function setRating($rating) {
 
-        if(is_numeric($rating) && $rating >= 0) {
+//         if(is_numeric($rating) && $rating >= 0) {
 
-            $this->rating = intval($rating);
-        } else {
-            var_dump('il parametro del numero non è valido ');
-        }
+//             $this->rating = intval($rating);
+//         } else {
+//             var_dump('il parametro del numero non è valido ');
+//         }
         
-    }
+//     }
 
     
-    // GETTER
+//     // GETTER
     
-    public function getTitle() {
-        return $this->title;
-    }
+//     public function getTitle() {
+//         return $this->title;
+//     }
 
-    public function getLanguage() {
-        return $this->language;
-    }
+//     public function getLanguage() {
+//         return $this->language;
+//     }
 
-    public function getRating() {
+//     public function getRating() {
 
-        return $this->rating;
-    }
+//         return $this->rating;
+//     }
 
-}
+// }
 //Creazione delle istanze della classe
 $movie_1 = new Production('il signore dei tornelli', 'Eng', 10);
 
