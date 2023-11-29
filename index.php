@@ -1,6 +1,8 @@
 <?php
 
 require_once __DIR__ . '/Models/Production.php';
+require_once __DIR__ . '/Models/Movie.php';
+require_once __DIR__ . '/Models/Series.php';
 
 // creazione della classe
 // class Production {
@@ -67,7 +69,7 @@ require_once __DIR__ . '/Models/Production.php';
 
 // }
 //Creazione delle istanze della classe
-$movie_1 = new Production('il signore dei tornelli', 'Eng', 10);
+// $movie_1 = new Production('il signore dei tornelli', 'Eng', 10);
 
 // $movie_1 = new Production();
 //Assegnazione valore alle istanze
@@ -79,16 +81,24 @@ $movie_1 = new Production('il signore dei tornelli', 'Eng', 10);
 // var_dump('questo film si chiama'. ' ' . $movie_1->title);
 // var_dump('il voto di questo film è' . ' ' . $movie_1->getRating());
 
-$movie_2 = new Production('Alto,basso e Balto', 'Ita', 3);
+// $movie_2 = new Production('Alto,basso e Balto', 'Ita', 3);
 // $movie_2 = new Production;
 // $movie_2->title = 'Marco baldo';
 // $movie_2->language = 'Ita';
 // $movie_2->rating = 3;
 // var_dump($movie_2);
 
-$movie_3 = new Production('Isabello il re pugile', 'Deu', 7);
-$movie_4 = new Production('Bartolomeo il gallo cannibale', 'Ita', 3);
-$movie_5 = new Production('Pirati dei balcani ai confini della vodka', 'Spa', 3);
+// $movie_3 = new Production('Isabello il re pugile', 'Deu', 7);
+// $movie_4 = new Production('Bartolomeo il gallo cannibale', 'Ita', 3);
+// $movie_5 = new Production('Pirati dei balcani ai confini della vodka', 'Spa', 3);
+
+
+$movie_1 = new Movie('il signore dei tornelli', 'Eng', 10, 20, 90);
+$movie_2 = new Movie('Alto,basso e Balto', 'Ita', 3, 50, 5);
+$movie_3 = new Movie('Isabello il re pugile', 'Deu', 7, 100, 15);
+$movie_4 = new Movie('Bartolomeo il gallo cannibale', 'Ita', 3, 60, 60);
+$movie_5 = new Movie('Pirati dei balcani ai confini della vodka', 'Spa', 3, 10, 30);
+// var_dump($movie_1,$movie_2,$movie_3,$movie_4,$movie_5);
 
 $movies = [
     $movie_1,
@@ -121,6 +131,8 @@ $movies = [
                         <th scope="col">Titolo</th>
                         <th scope="col">Lingua</th>
                         <th scope="col">Voto</th>
+                        <th scope="col">Incassi</th>
+                        <th scope="col">Durata</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -129,6 +141,8 @@ $movies = [
                             <td class="fw-bold" > <?php echo $movie->getTitle() ?> </td>
                             <td> <?php echo $movie->getLanguage() ?> </td>
                             <td> <?php echo $movie->getRating() ?> </td>
+                            <td> <?php echo $movie->getProfit()?> &euro;</td>
+                            <td> <?php echo $movie->getDuration() ?>''</td>
                         </tr>   
                    <?php } ?>
                 </tbody>
