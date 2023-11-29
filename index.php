@@ -94,8 +94,8 @@ require_once __DIR__ . '/Models/Series.php';
 
 
 $movie_1 = new Movie('il signore dei tornelli', 'Eng', 10, 20, 90);
-$movie_2 = new Movie('Alto,basso e Balto', 'Ita', 3, 50, 5);
-$movie_3 = new Movie('Isabello il re pugile', 'Deu', 7, 100, 15);
+$movie_2 = new Movie('Alto,basso e Balto', 'Ita', 3, 50, 45);
+$movie_3 = new Movie('Isabello il re pugile', 'Deu', 7, 100, 72);
 $movie_4 = new Movie('Bartolomeo il gallo cannibale', 'Ita', 3, 60, 60);
 $movie_5 = new Movie('Pirati dei balcani ai confini della vodka', 'Spa', 3, 10, 30);
 // var_dump($movie_1,$movie_2,$movie_3,$movie_4,$movie_5);
@@ -115,14 +115,14 @@ $collection = [
     $movie_3,
     $movie_4,
     $movie_5,
-    // $season_1,
-    // $season_2,
-    // $season_3,
-    // $season_4,
-    // $season_5,
+    $season_1,
+    $season_2,
+    $season_3,
+    $season_4,
+    $season_5,
 ];
 
-// var_dump($movies);
+// var_dump($collection);
 
 ?>
 
@@ -138,29 +138,33 @@ $collection = [
 <body>
     <main>
         <div class="container">
-            <h1>Film</h1>
+            <h1>Collezione</h1>
             <table class="table">
                 <thead class="table-light">
                     <tr>
                         <th scope="col">Titolo</th>
                         <th scope="col">Lingua</th>
                         <th scope="col">Voto</th>
-                        <th scope="col">Incassi</th>
-                        <th scope="col">Durata</th>
+                        <th scope="col">Informazioni</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach($collection as $movie) {
-
-
-
-                    ?>
+                    <?php foreach($collection as $category) {?>
                         <tr>
-                            <td class="fw-bold" > <?php echo $movie->getTitle() ?> </td>
-                            <td> <?php echo $movie->getLanguage() ?> </td>
-                            <td> <?php echo $movie->getRating() ?> </td>
-                            <td> <?php echo $movie->getProfit()?> &euro;</td>
-                            <td> <?php echo $movie->getDuration() ?>''</td>
+                            <td class="fw-bold" > <?php echo $category->getTitle() ?> </td>
+                            <td> <?php echo $category->getLanguage() ?> </td>
+                            <td> <?php echo $category->getRating() ?> </td>
+                            <?php if(isset($category->seasons)) { ?>
+                                <td>
+                                    Stagioni: <?php echo $category->getSeason() ?>
+                                </td>
+                            <?php } else { ?>
+                                <td>
+                                    Incassi: <?php echo $category->getProfit()?>,
+                                    Durata: <?php echo $category->getDuration() ?> ''
+                                </td>        
+                            <?php } ?>
                         </tr>   
                    <?php } ?>
                 </tbody>
@@ -169,3 +173,5 @@ $collection = [
     </main> 
 </body>
 </html>
+
+<!-- <td>  &euro;</td> -->

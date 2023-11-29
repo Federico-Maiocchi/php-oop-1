@@ -15,11 +15,21 @@ class Movie extends Production {
     }
 
     public function setProfit($profit) {
-        $this->profit = $profit;
+        if(is_numeric($profit) && $profit >= 0) {
+
+            $this->profit= intval($profit);
+        } else {
+            var_dump('il parametro degli incassi non è valido ');
+        }
     }
 
     public function setDuration($duration) {
-        $this->duration = $duration;
+        if(is_numeric($duration) && $duration > 20) {
+
+            $this->duration= intval($duration);
+        } else {
+            var_dump('il parametro della durata del film non è valido ');
+        }
     }
 
     public function getProfit() {

@@ -15,7 +15,13 @@ class Series extends Production {
     }
 
     public function setSeason($seasons) {
-        $this->seasons = $seasons;
+
+        if(is_numeric($seasons) && $seasons > 0) {
+
+            $this->seasons= intval($seasons);
+        } else {
+            var_dump('il parametro del numero delle stagioni non è valido ');
+        }
     }
 
 
